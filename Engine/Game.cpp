@@ -28,12 +28,12 @@ Game::Game( MainWindow& wnd )
 {
 }
 
-void Game::Go()
+void Game::Go() // the whole function is a frame of the game.
 {
-	gfx.BeginFrame();	
-	UpdateModel();
-	ComposeFrame();
-	gfx.EndFrame();
+	gfx.BeginFrame();	//Create the frame.
+	UpdateModel(); //Update the frame.
+	ComposeFrame(); //Render the most up-to-date version of the game in a frame.
+	gfx.EndFrame(); //Present the frame to the user.
 }
 
 void Game::UpdateModel()
@@ -42,12 +42,12 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	int x = 400;
+	int x = 400; //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope.
 	int y = 300; 
 
 	int gb = 255;
 
-	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
 	{
 		x = x + 100;
 	}
