@@ -43,11 +43,9 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	const int x = 400;
-	const int y = 300;
+	const int y = 300; 
 
-	const bool cond = wnd.kbd.KeyIsPressed(VK_UP);
-
-	if (cond)
+	if (wnd.kbd.KeyIsPressed(VK_UP)) // VK = Virtual KeyCode
 	{
 		gfx.PutPixel(-5 + x, y, 255, 255, 255); //(X,Y,R,G,B)
 		gfx.PutPixel(-4 + x, y, 255, 255, 255);
@@ -61,6 +59,21 @@ void Game::ComposeFrame()
 		gfx.PutPixel(x, 3 + y, 255, 255, 255);
 		gfx.PutPixel(x, 4 + y, 255, 255, 255);
 		gfx.PutPixel(x, 5 + y, 255, 255, 255);
+	}
+	else
+	{
+		gfx.PutPixel(-5 + x, y, 255, 0, 255); //(X,Y,R,G,B)
+		gfx.PutPixel(-4 + x, y, 255, 0, 255);
+		gfx.PutPixel(-3 + x, y, 255, 0, 255);
+		gfx.PutPixel(3 + x, y, 255, 0, 255);
+		gfx.PutPixel(4 + x, y, 255, 0, 255);
+		gfx.PutPixel(5 + x, y, 255, 0, 255);
+		gfx.PutPixel(x, -5 + y, 255, 0, 255);
+		gfx.PutPixel(x, -4 + y, 255, 0, 255);
+		gfx.PutPixel(x, -3 + y, 255, 0, 255);
+		gfx.PutPixel(x, 3 + y, 255, 0, 255);
+		gfx.PutPixel(x, 4 + y, 255, 0, 255);
+		gfx.PutPixel(x, 5 + y, 255, 0, 255);
 	}
 	
 }
