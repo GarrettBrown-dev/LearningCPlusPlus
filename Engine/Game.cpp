@@ -42,14 +42,35 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	const int x = 400;
-	const int y = 300; 
+	int x = 400;
+	int y = 300; 
 
 	int gb = 255;
 
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		x = x + 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		x = x - 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		y = y - 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		y = y + 100;
+	}
+
+
 	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
 	{
-		gb = 0;
+		gb = 0; //Green and Blue Values.
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) //Changes Shape of Crosshair
