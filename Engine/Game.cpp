@@ -52,23 +52,7 @@ void Game::ComposeFrame()
 		gb = 0;
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_UP)) // VK = Virtual KeyCode
-	{
-		//if(wnd.kbd.KeyIsPressed(VK_DOWN)) <-- This is Nested! It makes it so you have to press both up and down for the crosshair to appear!
-		gfx.PutPixel(-5 + x, y, 255, gb, gb); //(X,Y,R,G,B)
-		gfx.PutPixel(-4 + x, y, 255, gb, gb);
-		gfx.PutPixel(-3 + x, y, 255, gb, gb);
-		gfx.PutPixel(3 + x,  y, 255, gb, gb);
-		gfx.PutPixel(4 + x,  y, 255, gb, gb);
-		gfx.PutPixel(5 + x,  y, 255, gb, gb);
-		gfx.PutPixel(x, -5 + y, 255, gb, gb);
-		gfx.PutPixel(x, -4 + y, 255, gb, gb);
-		gfx.PutPixel(x, -3 + y, 255, gb, gb);
-		gfx.PutPixel(x,  3 + y, 255, gb, gb);
-		gfx.PutPixel(x,  4 + y, 255, gb, gb);
-		gfx.PutPixel(x,  5 + y, 255, gb, gb);
-	}
-	else if (wnd.kbd.KeyIsPressed(VK_SHIFT)) //Changes Shape of Crosshair
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) //Changes Shape of Crosshair
 	{
 		gfx.PutPixel(-10 + x, y,255, gb, gb); //(X,Y,R,G,B)
 		gfx.PutPixel(-9 + x, y, 255, gb, gb);
@@ -83,9 +67,20 @@ void Game::ComposeFrame()
 		gfx.PutPixel(x, 9 + y,  255, gb, gb);
 		gfx.PutPixel(x, 10 + y, 255, gb, gb);
 	}
-	else if (wnd.kbd.KeyIsPressed(VK_SPACE))
+	else
 	{
-
+		gfx.PutPixel(-5 + x, y, 255, gb, gb); //(X,Y,R,G,B)
+		gfx.PutPixel(-4 + x, y, 255, gb, gb);
+		gfx.PutPixel(-3 + x, y, 255, gb, gb);
+		gfx.PutPixel(3 + x, y, 255, gb, gb);
+		gfx.PutPixel(4 + x, y, 255, gb, gb);
+		gfx.PutPixel(5 + x, y, 255, gb, gb);
+		gfx.PutPixel(x, -5 + y, 255, gb, gb);
+		gfx.PutPixel(x, -4 + y, 255, gb, gb);
+		gfx.PutPixel(x, -3 + y, 255, gb, gb);
+		gfx.PutPixel(x, 3 + y, 255, gb, gb);
+		gfx.PutPixel(x, 4 + y, 255, gb, gb);
+		gfx.PutPixel(x, 5 + y, 255, gb, gb);
 	}
 	
 }
