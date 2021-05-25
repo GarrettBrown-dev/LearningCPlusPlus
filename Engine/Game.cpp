@@ -41,12 +41,23 @@ void Game::UpdateModel()
 {
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
 	{
-		vx = vx + 3;
+		if (inhibitRight)
+		{
+		}
+		else
+		{
+			vx = vx + 1;
+			inhibitRight = true;
+		}
+	}
+	else
+	{
+		inhibitRight = false;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_LEFT))
 	{
-		vx = vx - 3;
+		vx = vx - 1;
 	}
 
 
