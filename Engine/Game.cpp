@@ -107,6 +107,26 @@ void Game::UpdateModel()
 	x = x + vx;
 	y = y + vy;
 
+	if (x + 5 >= gfx.ScreenWidth)
+	{
+		x = gfx.ScreenWidth - 6;
+	}
+
+	if (x - 5 < 0 )
+	{
+		x = 5;
+	}
+
+	if (y + 5 >= gfx.ScreenHeight)
+	{
+		y = gfx.ScreenHeight - 6;
+	}
+
+	if (y - 5 < 0)
+	{
+		y = 5;
+	}
+
 	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
 	{
 		gb = 0; //Green and Blue Values.
