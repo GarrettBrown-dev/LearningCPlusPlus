@@ -131,12 +131,18 @@ void Game::UpdateModel()
 		vy = 0;
 	}
 
+	shapeIsChanged = false;
+	if (x > 200 || x < 300)
+	{
+		shapeIsChanged = true;
+	}
+
 	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
 	{
 		gb = 0; //Green and Blue Values.
 	}
 
-	shapeIsChanged = wnd.kbd.KeyIsPressed(VK_SHIFT);
+	//shapeIsChanged = wnd.kbd.KeyIsPressed(VK_SHIFT);
 
 }
 
