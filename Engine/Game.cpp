@@ -21,6 +21,7 @@
 #include "MainWindow.h"
 #include "Game.h"
 
+//CPP Files are the corresponding code files for Headers and contain the actual behaviors for the class and what will happen when a function is activated.
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),

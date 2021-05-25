@@ -24,10 +24,11 @@
 #include "Mouse.h"
 #include "Graphics.h"
 
-class Game
+//A Header file sketches out the class and gives us the shape and behaviors of the class.
+class Game 
 {
-public:
-	Game( class MainWindow& wnd );
+public: //Member Functions
+	Game( class MainWindow& wnd ); //Constructor
 	Game( const Game& ) = delete;
 	Game& operator=( const Game& ) = delete;
 	void Go();
@@ -38,7 +39,7 @@ private:
 	/*  User Functions              */
 	/********************************/
 private:
-	MainWindow& wnd;
+	MainWindow& wnd; //Data members
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
