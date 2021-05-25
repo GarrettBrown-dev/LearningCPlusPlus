@@ -41,12 +41,10 @@ void Game::UpdateModel()
 {
 }
 
+//Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
-	int x = 400; //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope.
-	int y = 300; 
 
-	int gb = 255;
 
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
 	{
@@ -68,6 +66,7 @@ void Game::ComposeFrame()
 		y = y + 100;
 	}
 
+	int gb = 255;
 
 	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
 	{
