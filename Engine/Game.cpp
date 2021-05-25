@@ -48,22 +48,22 @@ void Game::ComposeFrame()
 
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
 	{
-		x = x + 100;
+		x = x + 3;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_LEFT))
 	{
-		x = x - 100;
+		x = x - 3;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_UP))
 	{
-		y = y - 100;
+		y = y - 3;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_DOWN))
 	{
-		y = y + 100;
+		y = y + 3;
 	}
 
 	int gb = 255;
