@@ -33,19 +33,12 @@ void Game::Go() // the whole function is a frame of the game.
 {
 	gfx.BeginFrame();	//Create the frame.
 	UpdateModel(); //Update the frame.
-	ComposeFrame(); //Render the most up-to-date version of the game in a frame.
+	ComposeFrame(); //Render the most up-to-date version of the game in a frame. If you wanted an exclusively server based form of the game, you could simply comment out the compose frame function.
 	gfx.EndFrame(); //Present the frame to the user.
 }
 
 void Game::UpdateModel()
 {
-}
-
-//Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
-void Game::ComposeFrame()
-{
-
-
 	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
 	{
 		x = x + 3;
@@ -66,14 +59,19 @@ void Game::ComposeFrame()
 		y = y + 3;
 	}
 
-	int gb = 255;
-
 	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
 	{
 		gb = 0; //Green and Blue Values.
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_SHIFT)) //Changes Shape of Crosshair
+	shapeIsChanged = wnd.kbd.KeyIsPressed(VK_SHIFT);
+
+}
+
+//Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
+void Game::ComposeFrame()
+{
+	if (shapeIsChanged) //Changes Shape of Crosshair
 	{
 		gfx.PutPixel(-10 + x, y,255, gb, gb); //(X,Y,R,G,B)
 		gfx.PutPixel(-9 + x, y, 255, gb, gb);
