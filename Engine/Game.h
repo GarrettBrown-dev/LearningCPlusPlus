@@ -43,8 +43,11 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	int x = 400;
-	int y = 300;
+	int x_fixed = 400;
+	int y_fixed = 300;
+	int x_mobile = 400;
+	int y_mobile = 300;
+	int colliding = false;
 	int vx = 0;
 	int vy = 0;
 	int gb = 255;
