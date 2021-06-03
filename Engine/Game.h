@@ -48,13 +48,5 @@ private:
 	int x_mobile = 400;
 	int y_mobile = 300;
 	int colliding = false;
-	int vx = 0;
-	int vy = 0;
-	int gb = 255;
-	bool shapeIsChanged = false;
-	bool inhibitUp = false;
-	bool inhibitDown = false;
-	bool inhibitLeft = false;
-	bool inhibitRight = false;
 	/********************************/
 };
