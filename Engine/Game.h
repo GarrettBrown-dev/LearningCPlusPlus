@@ -37,6 +37,7 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	void DrawBox();
 	/********************************/
 private:
 	MainWindow& wnd; //Data members
