@@ -39,111 +39,25 @@ void Game::Go() // the whole function is a frame of the game.
 
 void Game::UpdateModel()
 {
-	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
 	{
-		if (inhibitRight)
-		{
-		}
-		else
-		{
-			x_mobile = x_mobile + 1;
-			inhibitRight = true;
-		}
-	}
-	else
-	{
-		inhibitRight = false;
+		x_mobile = x_mobile + 1;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_LEFT))
 	{
-		if (inhibitLeft)
-		{
-		}
-		else
-		{
-			x_mobile = x_mobile - 1;
-			inhibitLeft = true;
-		}
-	}
-	else
-	{
-		inhibitLeft = false;
-	}
-
-
-	if (wnd.kbd.KeyIsPressed(VK_UP))
-	{
-		if (inhibitUp)
-		{
-		}
-		else
-		{
-			y_mobile = y_mobile - 1;
-			inhibitUp = true;
-		}
-	}
-	else
-	{
-		inhibitUp = false;
+		x_mobile = x_mobile - 1;
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_DOWN))
 	{
-		if (inhibitDown)
-		{
-		}
-		else
-		{
-			y_mobile = y_mobile + 1;
-			inhibitDown = true;
-		}
+		y_mobile = y_mobile + 1;
 	}
-	else
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
 	{
-		inhibitDown = false;
+		y_mobile = y_mobile - 1;
 	}
-
-	x = x + vx;
-	y = y + vy;
-
-	if (x + 5 >= gfx.ScreenWidth)
-	{
-		x = gfx.ScreenWidth - 6;
-		vx = 0;
-	}
-
-	if (x - 5 < 0 )
-	{
-		x = 5;
-		vx = 0;
-	}
-
-	if (y + 5 >= gfx.ScreenHeight)
-	{
-		y = gfx.ScreenHeight - 6;
-		vy = 0;
-	}
-
-	if (y - 5 < 0)
-	{
-		y = 5;
-		vy = 0;
-	}
-
-	shapeIsChanged = false;
-	if (x > 200 || x < 300)
-	{
-		shapeIsChanged = true;
-	}
-
-	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
-	{
-		gb = 0; //Green and Blue Values.
-	}
-
-	//shapeIsChanged = wnd.kbd.KeyIsPressed(VK_SHIFT);
-
 }
 
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
@@ -212,6 +126,113 @@ void Game::ComposeFrame()
 
 	
 }
+//{
+//	if (wnd.kbd.KeyIsPressed(VK_RIGHT)) //If a variable is redeclared within a function, the one in the function takes precident.
+//	{
+//		if (inhibitRight)
+//		{
+//		}
+//		else
+//		{
+//			x_mobile = x_mobile + 1;
+//			inhibitRight = true;
+//		}
+//	}
+//	else
+//	{
+//		inhibitRight = false;
+//	}
+//
+//	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+//	{
+//		if (inhibitLeft)
+//		{
+//		}
+//		else
+//		{
+//			x_mobile = x_mobile - 1;
+//			inhibitLeft = true;
+//		}
+//	}
+//	else
+//	{
+//		inhibitLeft = false;
+//	}
+//
+//
+//	if (wnd.kbd.KeyIsPressed(VK_UP))
+//	{
+//		if (inhibitUp)
+//		{
+//		}
+//		else
+//		{
+//			y_mobile = y_mobile - 1;
+//			inhibitUp = true;
+//		}
+//	}
+//	else
+//	{
+//		inhibitUp = false;
+//	}
+//
+//	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+//	{
+//		if (inhibitDown)
+//		{
+//		}
+//		else
+//		{
+//			y_mobile = y_mobile + 1;
+//			inhibitDown = true;
+//		}
+//	}
+//	else
+//	{
+//		inhibitDown = false;
+//	}
+//
+//	x = x + vx;
+//	y = y + vy;
+//
+//	if (x + 5 >= gfx.ScreenWidth)
+//	{
+//		x = gfx.ScreenWidth - 6;
+//		vx = 0;
+//	}
+//
+//	if (x - 5 < 0)
+//	{
+//		x = 5;
+//		vx = 0;
+//	}
+//
+//	if (y + 5 >= gfx.ScreenHeight)
+//	{
+//		y = gfx.ScreenHeight - 6;
+//		vy = 0;
+//	}
+//
+//	if (y - 5 < 0)
+//	{
+//		y = 5;
+//		vy = 0;
+//	}
+//
+//	shapeIsChanged = false;
+//	if (x > 200 || x < 300)
+//	{
+//		shapeIsChanged = true;
+//	}
+//
+//	if (wnd.kbd.KeyIsPressed(VK_CONTROL))
+//	{
+//		gb = 0; //Green and Blue Values.
+//	}
+//
+//	//shapeIsChanged = wnd.kbd.KeyIsPressed(VK_SHIFT);
+//
+//}
 
 //if (shapeIsChanged) //Changes Shape of Crosshair
 //{
