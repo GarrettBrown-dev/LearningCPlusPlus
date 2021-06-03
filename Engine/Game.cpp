@@ -58,6 +58,28 @@ void Game::UpdateModel()
 	{
 		y_mobile = y_mobile - 1;
 	}
+
+	const int left_mobile = x_mobile - 5;
+	const int right_mobile = x_mobile + 5;
+	const int top_mobile = y_mobile - 5;
+	const int bottom_mobile = y_mobile + 5;
+
+	const int left_fixed = x_fixed - 5;
+	const int right_fixed = x_fixed + 5;
+	const int top_fixed = y_fixed - 5;
+	const int bottom_fixed = y_fixed + 5;
+
+	if (left_mobile < right_fixed &&
+		right_mobile > left_fixed &&
+		top_mobile < bottom_fixed &&
+		bottom_mobile > top_fixed)
+	{
+		colliding = true;
+	}
+	else
+	{
+		colliding = false;
+	}
 }
 
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
