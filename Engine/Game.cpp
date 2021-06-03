@@ -46,7 +46,7 @@ void Game::UpdateModel()
 		}
 		else
 		{
-			vx = vx + 1;
+			x_mobile = x_mobile + 1;
 			inhibitRight = true;
 		}
 	}
@@ -62,7 +62,7 @@ void Game::UpdateModel()
 		}
 		else
 		{
-			vx = vx - 1;
+			x_mobile = x_mobile - 1;
 			inhibitLeft = true;
 		}
 	}
@@ -79,7 +79,7 @@ void Game::UpdateModel()
 		}
 		else
 		{
-			vy = vy - 1;
+			y_mobile = y_mobile - 1;
 			inhibitUp = true;
 		}
 	}
@@ -95,7 +95,7 @@ void Game::UpdateModel()
 		}
 		else
 		{
-			vy = vy + 1;
+			y_mobile = y_mobile + 1;
 			inhibitDown = true;
 		}
 	}
@@ -149,48 +149,110 @@ void Game::UpdateModel()
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
-	if (shapeIsChanged) //Changes Shape of Crosshair
+	const int r_fixed = 0;
+	const int g_fixed = 255;
+	const int b_fixed = 0;
+
+	gfx.PutPixel(-5 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x_fixed, -4 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x_fixed, -3 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-4 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-3 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x_fixed, 4 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x_fixed, 3 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-4 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-3 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, -4 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, -3 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(4 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(3 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, 4 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(5 + x_fixed, 3 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(4 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(3 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+
+	int r_mobile, g_mobile, b_mobile;
+
+	if (colliding)
 	{
-		gfx.PutPixel(-10 + x, y,255, gb, gb); //(X,Y,R,G,B)
-		gfx.PutPixel(-9 + x, y, 255, gb, gb);
-		gfx.PutPixel(-8 + x, y, 255, gb, gb);
-		gfx.PutPixel(8 + x, y,  255, gb, gb);
-		gfx.PutPixel(9 + x, y,  255, gb, gb);
-		gfx.PutPixel(10 + x, y, 255, gb, gb);
-		gfx.PutPixel(x,-10 + y, 255, gb, gb);
-		gfx.PutPixel(x, -9 + y, 255, gb, gb);
-		gfx.PutPixel(x, -8 + y, 255, gb, gb);
-		gfx.PutPixel(x, 8 + y,  255, gb, gb);
-		gfx.PutPixel(x, 9 + y,  255, gb, gb);
-		gfx.PutPixel(x, 10 + y, 255, gb, gb);
+		r_mobile = 255;
+		g_mobile = 0;
+		b_mobile = 0;
 	}
 	else
 	{
-		gfx.PutPixel(-5 + x, y, 255, gb, gb); //(X,Y,R,G,B)
-		gfx.PutPixel(-4 + x, y, 255, gb, gb);
-		gfx.PutPixel(-3 + x, y, 255, gb, gb);
-		gfx.PutPixel(3 + x, y, 255, gb, gb);
-		gfx.PutPixel(4 + x, y, 255, gb, gb);
-		gfx.PutPixel(5 + x, y, 255, gb, gb);
-		gfx.PutPixel(x, -5 + y, 255, gb, gb);
-		gfx.PutPixel(x, -4 + y, 255, gb, gb);
-		gfx.PutPixel(x, -3 + y, 255, gb, gb);
-		gfx.PutPixel(x, 3 + y, 255, gb, gb);
-		gfx.PutPixel(x, 4 + y, 255, gb, gb);
-		gfx.PutPixel(x, 5 + y, 255, gb, gb);
+		r_mobile = 255;
+		g_mobile = 255;
+		b_mobile = 255;
 	}
 
-	gfx.PutPixel(-10 + x, y, 255, gb, gb); //(X,Y,R,G,B)
-	gfx.PutPixel(-9 + x, y, 255, gb, gb);
-	gfx.PutPixel(-8 + x, y, 255, gb, gb);
-	gfx.PutPixel(8 + x, y, 255, gb, gb);
-	gfx.PutPixel(9 + x, y, 255, gb, gb);
-	gfx.PutPixel(10 + x, y, 255, gb, gb);
-	gfx.PutPixel(x, -10 + y, 255, gb, gb);
-	gfx.PutPixel(x, -9 + y, 255, gb, gb);
-	gfx.PutPixel(x, -8 + y, 255, gb, gb);
-	gfx.PutPixel(x, 8 + y, 255, gb, gb);
-	gfx.PutPixel(x, 9 + y, 255, gb, gb);
-	gfx.PutPixel(x, 10 + y, 255, gb, gb);
+	gfx.PutPixel(-5 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-5 + x_mobile, -4 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-5 + x_mobile, -3 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-4 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-3 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-5 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-5 + x_mobile, 4 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-5 + x_mobile, 3 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-4 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(-3 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, -4 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, -3 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(4 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(3 + x_mobile, -5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, 4 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(5 + x_mobile, 3 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(4 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+	gfx.PutPixel(3 + x_mobile, 5 + y_mobile, r_mobile, g_mobile, b_mobile);
+
 	
 }
+
+//if (shapeIsChanged) //Changes Shape of Crosshair
+//{
+//	gfx.PutPixel(-10 + x, y,255, gb, gb); //(X,Y,R,G,B)
+//	gfx.PutPixel(-9 + x, y, 255, gb, gb);
+//	gfx.PutPixel(-8 + x, y, 255, gb, gb);
+//	gfx.PutPixel(8 + x, y,  255, gb, gb);
+//	gfx.PutPixel(9 + x, y,  255, gb, gb);
+//	gfx.PutPixel(10 + x, y, 255, gb, gb);
+//	gfx.PutPixel(x,-10 + y, 255, gb, gb);
+//	gfx.PutPixel(x, -9 + y, 255, gb, gb);
+//	gfx.PutPixel(x, -8 + y, 255, gb, gb);
+//	gfx.PutPixel(x, 8 + y,  255, gb, gb);
+//	gfx.PutPixel(x, 9 + y,  255, gb, gb);
+//	gfx.PutPixel(x, 10 + y, 255, gb, gb);
+//}
+//else
+//{
+//	gfx.PutPixel(-5 + x, y, 255, gb, gb); //(X,Y,R,G,B)
+//	gfx.PutPixel(-4 + x, y, 255, gb, gb);
+//	gfx.PutPixel(-3 + x, y, 255, gb, gb);
+//	gfx.PutPixel(3 + x, y, 255, gb, gb);
+//	gfx.PutPixel(4 + x, y, 255, gb, gb);
+//	gfx.PutPixel(5 + x, y, 255, gb, gb);
+//	gfx.PutPixel(x, -5 + y, 255, gb, gb);
+//	gfx.PutPixel(x, -4 + y, 255, gb, gb);
+//	gfx.PutPixel(x, -3 + y, 255, gb, gb);
+//	gfx.PutPixel(x, 3 + y, 255, gb, gb);
+//	gfx.PutPixel(x, 4 + y, 255, gb, gb);
+//	gfx.PutPixel(x, 5 + y, 255, gb, gb);
+//}
+
+//gfx.PutPixel(-10 + x, y, 255, gb, gb); //(X,Y,R,G,B)
+//gfx.PutPixel(-9 + x, y, 255, gb, gb);
+//gfx.PutPixel(-8 + x, y, 255, gb, gb);
+//gfx.PutPixel(8 + x, y, 255, gb, gb);
+//gfx.PutPixel(9 + x, y, 255, gb, gb);
+//gfx.PutPixel(10 + x, y, 255, gb, gb);
+//gfx.PutPixel(x, -10 + y, 255, gb, gb);
+//gfx.PutPixel(x, -9 + y, 255, gb, gb);
+//gfx.PutPixel(x, -8 + y, 255, gb, gb);
+//gfx.PutPixel(x, 8 + y, 255, gb, gb);
+//gfx.PutPixel(x, 9 + y, 255, gb, gb);
+//gfx.PutPixel(x, 10 + y, 255, gb, gb);
