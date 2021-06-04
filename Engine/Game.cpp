@@ -105,7 +105,6 @@ void Game::DrawBox(int x, int y, int r, int g, int b)
 
 bool Game::OverlapTest(int box0x, int box0y, int box1x, int box1y)
 {
-	bool testIsColliding = false;
 
 	const int left_box0 = box0x - 5;
 	const int right_box0 = box0x + 5;
@@ -117,16 +116,9 @@ bool Game::OverlapTest(int box0x, int box0y, int box1x, int box1y)
 	const int top_box1 = box1y - 5;
 	const int bottom_box1 = box1y + 5;
 
-	if (left_box0 <= right_box1 &&
+	return
+		left_box0 <= right_box1 &&
 		right_box0 >= left_box1 &&
 		top_box0 <= bottom_box1 &&
-		bottom_box0 >= top_box1)
-	{
-		colliding = true;
-	}
-	else
-	{
-		colliding = false;
-	}
-	return testIsColliding;
+		bottom_box0 >= top_box1;
 }
