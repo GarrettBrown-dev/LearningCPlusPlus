@@ -59,14 +59,20 @@ void Game::UpdateModel()
 		y_mobile = y_mobile - 1;
 	}
 
-	colliding = OverlapTest(x_fixed, y_fixed, x_mobile, y_mobile);
+	colliding = OverlapTest(x_fixed0, y_fixed0, x_mobile, y_mobile) || 
+		OverlapTest(x_fixed1, y_fixed1, x_mobile, y_mobile) || 
+		OverlapTest(x_fixed2, y_fixed2, x_mobile, y_mobile) || 
+		OverlapTest(x_fixed3, y_fixed3, x_mobile, y_mobile);
 
 }
 
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
-	DrawBox(x_fixed, y_fixed, 0, 255, 0);
+	DrawBox(x_fixed0, y_fixed0, 0, 255, 0);
+	DrawBox(x_fixed1, y_fixed1, 0, 255, 0);
+	DrawBox(x_fixed2, y_fixed2, 0, 255, 0);
+	DrawBox(x_fixed3, y_fixed3, 0, 255, 0);
 
 	if (colliding)
 	{
