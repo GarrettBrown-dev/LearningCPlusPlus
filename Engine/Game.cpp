@@ -64,10 +64,10 @@ void Game::UpdateModel()
 	const int top_mobile = y_mobile - 5;
 	const int bottom_mobile = y_mobile + 5;
 
-	const int left = x - 5;
-	const int right = x + 5;
-	const int top = y - 5;
-	const int bottom = y + 5;
+	const int left = x_fixed - 5;
+	const int right = x_fixed + 5;
+	const int top = y_fixed - 5;
+	const int bottom = y_fixed + 5;
 
 	if (left_mobile < right &&
 		right_mobile > left &&
@@ -85,7 +85,7 @@ void Game::UpdateModel()
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
-	DrawBox();
+	DrawBox(x_fixed, y_fixed, 255, 255, 255);
 
 	int r_mobile, g_mobile, b_mobile;
 
