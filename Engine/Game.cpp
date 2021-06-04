@@ -59,27 +59,8 @@ void Game::UpdateModel()
 		y_mobile = y_mobile - 1;
 	}
 
-	const int left_mobile = x_mobile - 5;
-	const int right_mobile = x_mobile + 5;
-	const int top_mobile = y_mobile - 5;
-	const int bottom_mobile = y_mobile + 5;
+	colliding = OverlapTest(x_fixed, y_fixed, x_mobile, y_mobile);
 
-	const int left = x_fixed - 5;
-	const int right = x_fixed + 5;
-	const int top = y_fixed - 5;
-	const int bottom = y_fixed + 5;
-
-	if (left_mobile < right &&
-		right_mobile > left &&
-		top_mobile < bottom &&
-		bottom_mobile > top)
-	{
-		colliding = true;
-	}
-	else
-	{
-		colliding = false;
-	}
 }
 
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
@@ -98,7 +79,8 @@ void Game::ComposeFrame()
 
 }
 
-void Game::DrawBox(int x, int y, int r, int g, int b)
+// If you want to draw multiple boxes, add parameters to change!
+void Game::DrawBox(int x, int y, int r, int g, int b) 
 {
 	gfx.PutPixel(-5 + x, -4 + y, r, g, b);
 	gfx.PutPixel(-5 + x, -3 + y, r, g, b);
@@ -119,4 +101,32 @@ void Game::DrawBox(int x, int y, int r, int g, int b)
 	gfx.PutPixel(5 + x, 3 + y, r, g, b);
 	gfx.PutPixel(4 + x, 5 + y, r, g, b);
 	gfx.PutPixel(3 + x, 5 + y, r, g, b);
+}
+
+bool Game::OverlapTest(int box0x, int box0y, int box1x, int box1y)
+{
+	bool testIsColliding = false;
+
+	const int left_box0 = box0x - 5;
+	const int right_box0 = box0x + 5;
+	const int top_box0 = box0y - 5;
+	const int bottom_box0 = box0y + 5;
+
+	const int left_box1 = box1x - 5;
+	const int right_box1 = box1x + 5;
+	const int top_box1 = box1y - 5;
+	const int bottom_box1 = box1y + 5;
+
+	if (left_box0 <= right_box1 &&
+		right_box0 >= left_box1 &&
+		top_box0 <= bottom_box1 &&
+		bottom_box0 >= top_box1)
+	{
+		colliding = true;
+	}
+	else
+	{
+		colliding = false;
+	}
+	return testIsColliding;
 }
