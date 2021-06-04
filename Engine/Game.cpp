@@ -64,15 +64,15 @@ void Game::UpdateModel()
 	const int top_mobile = y_mobile - 5;
 	const int bottom_mobile = y_mobile + 5;
 
-	const int left_fixed = x_fixed - 5;
-	const int right_fixed = x_fixed + 5;
-	const int top_fixed = y_fixed - 5;
-	const int bottom_fixed = y_fixed + 5;
+	const int left = x - 5;
+	const int right = x + 5;
+	const int top = y - 5;
+	const int bottom = y + 5;
 
-	if (left_mobile < right_fixed &&
-		right_mobile > left_fixed &&
-		top_mobile < bottom_fixed &&
-		bottom_mobile > top_fixed)
+	if (left_mobile < right &&
+		right_mobile > left &&
+		top_mobile < bottom &&
+		bottom_mobile > top)
 	{
 		colliding = true;
 	}
@@ -125,30 +125,25 @@ void Game::ComposeFrame()
 
 }
 
-void Game::DrawBox()
+void Game::DrawBox(int x, int y, int r, int g, int b)
 {
-	const int r_fixed = 0;
-	const int g_fixed = 255;
-	const int b_fixed = 0;
-
-	gfx.PutPixel(-5 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-5 + x_fixed, -4 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-5 + x_fixed, -3 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-4 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-3 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-5 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-5 + x_fixed, 4 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-5 + x_fixed, 3 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-4 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(-3 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, -4 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, -3 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(4 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(3 + x_fixed, -5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, 4 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(5 + x_fixed, 3 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(4 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
-	gfx.PutPixel(3 + x_fixed, 5 + y_fixed, r_fixed, g_fixed, b_fixed);
+	gfx.PutPixel(-5 + x, -4 + y, r, g, b);
+	gfx.PutPixel(-5 + x, -3 + y, r, g, b);
+	gfx.PutPixel(-4 + x, -5 + y, r, g, b);
+	gfx.PutPixel(-3 + x, -5 + y, r, g, b);
+	gfx.PutPixel(-5 + x, 5 + y, r, g, b);
+	gfx.PutPixel(-5 + x, 4 + y, r, g, b);
+	gfx.PutPixel(-5 + x, 3 + y, r, g, b);
+	gfx.PutPixel(-4 + x, 5 + y, r, g, b);
+	gfx.PutPixel(-3 + x, 5 + y, r, g, b);
+	gfx.PutPixel(5 + x, -5 + y, r, g, b);
+	gfx.PutPixel(5 + x, -4 + y, r, g, b);
+	gfx.PutPixel(5 + x, -3 + y, r, g, b);
+	gfx.PutPixel(4 + x, -5 + y, r, g, b);
+	gfx.PutPixel(3 + x, -5 + y, r, g, b);
+	gfx.PutPixel(5 + x, 5 + y, r, g, b);
+	gfx.PutPixel(5 + x, 4 + y, r, g, b);
+	gfx.PutPixel(5 + x, 3 + y, r, g, b);
+	gfx.PutPixel(4 + x, 5 + y, r, g, b);
+	gfx.PutPixel(3 + x, 5 + y, r, g, b);
 }
