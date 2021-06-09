@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <random>
 
 //CPP Files are the corresponding code files for Headers and contain the actual behaviors for the class and what will happen when a function is activated.
 Game::Game( MainWindow& wnd )
@@ -27,6 +28,15 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd )
 {
+	std::mt19937 rng;
+	std::uniform_int_distribution<int> xDist(0, 770);
+	std::uniform_int_distribution<int> yDist(0, 570);
+	poo0X = xDist(rng);
+	poo0Y = yDist(rng);
+	poo1X = xDist(rng);
+	poo1Y = yDist(rng);
+	poo2X = xDist(rng);
+	poo2Y = yDist(rng);
 }
 
 void Game::Go() // the whole function is a frame of the game.
@@ -29036,7 +29046,6 @@ bool Game::IsColliding(int x0, int y0, int width0, int height0, int x1, int y1, 
 		y0 <= bottom1;
 }
 
-//Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
 	if (!isStarted)
