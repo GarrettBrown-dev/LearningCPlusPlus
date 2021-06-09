@@ -2774,6 +2774,10 @@ bool Game::IsColliding(int x0, int y0, int width0, int height0, int x1, int y1, 
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
+	if (poo0IsEaten && poo1IsEaten && poo2IsEaten)
+	{
+		DrawGameOver(358, 268);
+	}
 	DrawFace(dudeX, dudeY);
 	if (!poo0IsEaten)
 	{
