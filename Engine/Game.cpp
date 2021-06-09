@@ -58,6 +58,19 @@ void Game::UpdateModel()
 
 	dudeX = ClampScreenX(dudeX, dudeWidth);
 	dudeY = ClampScreenY(dudeY, dudeHeight);
+
+	if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0X, poo0Y, pooWidth, pooHeight))
+	{
+		poo0IsEaten = true;
+	}
+	if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0X, poo0Y, pooWidth, pooHeight))
+	{
+		poo1IsEaten = true;
+	}
+	if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0X, poo0Y, pooWidth, pooHeight))
+	{
+		poo2IsEaten = true;
+	}
 }
 
 void Game::DrawFace(int x, int y)

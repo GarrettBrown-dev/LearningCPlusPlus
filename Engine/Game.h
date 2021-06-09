@@ -61,5 +61,7 @@ private:
 	int poo2X = 600;
 	int poo2Y = 400;
 	bool poo2IsEaten = false;
+	int pooWidth = 24;
+	int pooHeight = 24;
 	/********************************/
 };
