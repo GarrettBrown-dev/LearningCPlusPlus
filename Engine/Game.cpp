@@ -599,6 +599,23 @@ void Game::DrawPoo(int x, int y)
 
 }
 
+int Game::ClampScreenX(int x, int width)
+{
+	const int right = x + width;
+	if (x < 0)
+	{
+	return 0;
+	}
+	else if (right >= gfx.ScreenWidth)
+	{
+		return (gfx.ScreenWidth - 1) - width;
+	}
+	else
+	{
+		return x;
+	}
+}
+
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
