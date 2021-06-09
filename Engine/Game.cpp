@@ -39,7 +39,25 @@ void Game::Go() // the whole function is a frame of the game.
 
 void Game::UpdateModel()
 {
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		dudeX += 1;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		dudeX -= 1;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		dudeY += 1;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		dudeY -= 1;
+	}
 
+	dudeX = ClampScreenX(dudeX, dudeWidth);
+	dudeY = ClampScreenY(dudeY, dudeHeight);
 }
 
 void Game::DrawFace(int x, int y)
