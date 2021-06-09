@@ -43,5 +43,16 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	int dudeX = 400;
+	int dudeY = 300;
+	int poo0X = 300;
+	int poo0Y = 150;
+	bool poo0IsEaten = false;
+	int poo1X = 100;
+	int poo1Y = 500;
+	bool poo1IsEaten = false;
+	int poo2X = 600;
+	int poo2Y = 400;
+	bool poo2IsEaten = false;
 	/********************************/
 };
