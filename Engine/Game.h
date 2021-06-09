@@ -37,6 +37,7 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	void DrawFace(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd; //Data members
