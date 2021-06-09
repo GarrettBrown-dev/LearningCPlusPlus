@@ -28,7 +28,8 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd )
 {
-	std::mt19937 rng;
+	std::random_device rd;
+	std::mt19937 rng( rd() );
 	std::uniform_int_distribution<int> xDist(0, 770);
 	std::uniform_int_distribution<int> yDist(0, 570);
 	poo0X = xDist(rng);
