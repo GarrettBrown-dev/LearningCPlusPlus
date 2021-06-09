@@ -602,5 +602,8 @@ void Game::DrawPoo(int x, int y)
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
-
+	DrawFace(dudeX, dudeY);
+	DrawPoo(poo0X, poo0Y);
+	DrawPoo(poo1X, poo1Y);
+	DrawPoo(poo2X, poo2Y);
 }
