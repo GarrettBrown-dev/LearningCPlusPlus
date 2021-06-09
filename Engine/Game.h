@@ -38,6 +38,7 @@ private:
 	/********************************/
 	/*  User Functions              */
 	void DrawFace(int x, int y);
+	void DrawPoo(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd; //Data members
