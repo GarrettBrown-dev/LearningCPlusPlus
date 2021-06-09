@@ -651,6 +651,20 @@ int Game::ClampScreenY(int y, int height)
 	}
 }
 
+bool Game::IsColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1)
+{
+	const int right0 = x0 + width0;
+	const int bottom0 = y0 + height0;
+	const int right1 = x1 + width1;
+	const int bottom1 = y1 + height1;
+
+	return
+		right0 >= x1 &&
+		x0 <= right1 &&
+		bottom0 >= y1 &&
+		y0 <= bottom1;
+}
+
 //Variables come into existence when declared and end at the end of the function they're declared in. (As with other languages.) This is the scope. Local variables WILL override the Header variables.
 void Game::ComposeFrame()
 {
