@@ -36,7 +36,7 @@ void Poo::ProcessConsumption(int dudex, int dudey, int dudewidth, int dudeheight
 	const int duderight = dudex + dudewidth;
 	const int dudebottom = dudey + dudeheight;
 	const int pooright = x + width;
-	const int poobottom = 1 + height;
+	const int poobottom = y + height;
 
 	if (duderight >= x &&
 		dudex <= pooright &&
