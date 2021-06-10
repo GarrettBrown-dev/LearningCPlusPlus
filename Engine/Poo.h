@@ -8,5 +8,7 @@ public:
 	int y;
 	int vx;
 	int vy;
+	int width = 24;
+	int height = 24;
 	bool isEaten = false;
 };
