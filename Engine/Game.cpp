@@ -38,6 +38,13 @@ Game::Game( MainWindow& wnd )
 	poo1.y = yDist(rng);
 	poo2.x = xDist(rng);
 	poo2.y = yDist(rng);
+
+	poo0.vx = 1;
+	poo0.vy = 1;
+	poo1.vx = -1;
+	poo1.vy = 1;
+	poo2.vx = 1;
+	poo2.vy = -1;
 }
 
 void Game::Go() // the whole function is a frame of the game.
