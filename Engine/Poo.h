@@ -4,6 +4,7 @@ class Poo
 {
 public:
 	void Update();
+	void ProcessConsumption(int dudex, int dudey, int dudeWidth, int dudeHeight);
 	int x;
 	int y;
 	int vx;
