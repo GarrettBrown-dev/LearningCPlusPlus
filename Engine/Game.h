@@ -43,7 +43,6 @@ private:
 	void DrawPoo(int x, int y);
 	void DrawGameOver(int x, int y);
 	void DrawTitleScreen(int x, int y);
-	bool IsColliding(int x0, int y0, int width0, int height0, int x1, int y1, int width1, int height1);
 	/********************************/
 private:
 	MainWindow& wnd; //Data members
