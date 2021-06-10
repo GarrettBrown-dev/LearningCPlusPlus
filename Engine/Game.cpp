@@ -72,52 +72,9 @@ void Game::UpdateModel()
 		dudeX = ClampScreenX(dudeX, dudeWidth);
 		dudeY = ClampScreenY(dudeY, dudeHeight);
 
-		poo0.x += poo0vx;
-		poo0.y += poo0vy;
-		poo1.x += poo1vx;
-		poo1.y += poo1vy;
-		poo2.x += poo2vx;
-		poo2.y += poo2vy;
-
-		{
-			const int poo0.xold = poo0.x;
-			const int poo0.yold = poo0.y;
-			const int poo1.xold = poo1.x;
-			const int poo1.yold = poo1.y;
-			const int poo2.xold = poo2.x;
-			const int poo2.yold = poo2.y;
-
-			poo0.x = ClampScreenX(poo0.x, pooWidth);
-			if (poo0.x != poo0.xold)
-			{
-				poo0vx = -poo0vx;
-			}
-			poo0.y = ClampScreenY(poo0.y, pooHeight);
-			if (poo0.y != poo0.yold)
-			{
-				poo0vy = -poo0vy;
-			}
-			poo1.x = ClampScreenX(poo1.x, pooWidth);
-			if (poo1.x != poo1.xold)
-			{
-				poo1vx = -poo1vx;
-			}
-			poo1.y = ClampScreenY(poo1.y, pooHeight);
-			if (poo1.y != poo1.yold)
-			{
-				poo1vy = -poo1vy;
-			}
-			poo2.x = ClampScreenX(poo2.x, pooWidth);
-			if (poo2.x != poo2.xold)
-			{
-				poo2vx = -poo2vx;
-			}
-			poo2.y = ClampScreenY(poo2.y, pooHeight);
-			if (poo2.y != poo2.yold)
-			{
-				poo2vy = -poo2vy;
-			}
-		}
+		poo0.Update();
+		poo1.Update();
+		poo2.Update();
 
 		if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0.x, poo0.y, pooWidth, pooHeight))
 		{
