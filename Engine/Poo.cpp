@@ -1,4 +1,5 @@
 #include "Poo.h"
+#include "Graphics.h"
 
 void Poo::Update()
 {
@@ -10,25 +11,18 @@ void Poo::Update()
 	{
 		x = 0;
 	}
-	else if (right >= gfx.ScreenWidth)
+	else if (right >= Graphics::ScreenWidth)
 	{
-		x = (gfx.ScreenWidth - 1) - width;
+		x = (Graphics::ScreenWidth - 1) - width;
 	}
-	else
-	{
-		return x;
-	}
+
 	const int bottom = y + height;
 	if (y < 0)
 	{
 		y = 0;
 	}
-	else if (bottom >= gfx.ScreenHeight)
+	else if (bottom >= Graphics::ScreenHeight)
 	{
-		y = (gfx.ScreenHeight - 1) - height;
-	}
-	else
-	{
-		return y;
+		y = (Graphics::ScreenHeight - 1) - height;
 	}
 }
