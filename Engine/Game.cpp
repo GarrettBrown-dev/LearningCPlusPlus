@@ -61,37 +61,36 @@ void Game::UpdateModel()
 	{
 		if (wnd.kbd.KeyIsPressed(VK_RIGHT))
 		{
-			dudeX += 1;
+			dude.x += 1;
 		}
 		if (wnd.kbd.KeyIsPressed(VK_LEFT))
 		{
-			dudeX -= 1;
+			dude.x -= 1;
 		}
 		if (wnd.kbd.KeyIsPressed(VK_DOWN))
 		{
-			dudeY += 1;
+			dude.y += 1;
 		}
 		if (wnd.kbd.KeyIsPressed(VK_UP))
 		{
-			dudeY -= 1;
+			dude.y -= 1;
 		}
 
-		dudeX = ClampScreenX(dudeX, dudeWidth);
-		dudeY = ClampScreenY(dudeY, dudeHeight);
+		dude.ClampToScreen();
 
 		poo0.Update();
 		poo1.Update();
 		poo2.Update();
 
-		if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo0.x, poo0.y, poo0.width, poo0.height))
+		if (IsColliding(dude.x, dude.y, dude.width, dude.height, poo0.x, poo0.y, poo0.width, poo0.height))
 		{
 			poo0.isEaten = true;
 		}
-		if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo1.x, poo1.y, poo1.width, poo1.height))
+		if (IsColliding(dude.x, dude.y, dude.width, dude.height, poo1.x, poo1.y, poo1.width, poo1.height))
 		{
 			poo1.isEaten = true;
 		}
-		if (IsColliding(dudeX, dudeY, dudeWidth, dudeHeight, poo2.x, poo2.y, poo2.width, poo2.height))
+		if (IsColliding(dude.x, dude.y, dude.width, dude.height, poo2.x, poo2.y, poo2.width, poo2.height))
 		{
 			poo2.isEaten = true;
 		}
@@ -29036,7 +29035,7 @@ void Game::ComposeFrame()
 		{
 			DrawGameOver(358, 268);
 		}
-		DrawFace(dudeX, dudeY);
+		DrawFace(dude.x, dude.y);
 		if (!poo0.isEaten)
 		{
 			DrawPoo(poo0.x, poo0.y);
