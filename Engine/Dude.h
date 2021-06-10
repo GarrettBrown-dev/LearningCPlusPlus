@@ -3,6 +3,7 @@
 class Dude
 {
 public:
+	void ClampToScreen();
 	int x = 400;
 	int y = 300;
 	static constexpr int width = 20;
